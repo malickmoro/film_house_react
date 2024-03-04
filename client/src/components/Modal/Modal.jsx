@@ -5,12 +5,12 @@ import ContextVariales from '../../context/ContextVariables'
 import Card from '../Card/Card'
 
 const Sheet = () => {
-    const {selected} = useContext(ContextVariales)
+    const {selected, payment} = useContext(ContextVariales)
 
     return(
         <div id='Sheet'>
-            {selected && <SideBar />}
-            <Card />
+            {!selected && <SideBar />}
+            {selected && payment === 'card' && <Card />}
         </div>
     )
 }
